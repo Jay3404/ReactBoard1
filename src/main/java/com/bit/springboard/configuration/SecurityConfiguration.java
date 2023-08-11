@@ -60,6 +60,7 @@ public class SecurityConfiguration {
                     authorizeRequests.requestMatchers("/user/login").permitAll();
                     authorizeRequests.requestMatchers("/api/**").permitAll();
                     //이외의 요청은 인증된 사용자만 사용자만 사용가능
+                    // 리액트에 router 설정해놓은 '/', '/login', '/join', '/board-list'도 권한 줘야함
                     authorizeRequests.anyRequest().permitAll();
                 })
                 .addFilterAfter(jwtAuthenticationFilter, CorsFilter.class)
